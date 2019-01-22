@@ -1,0 +1,14 @@
+<h2>Meer tags!</h2>
+{% capture temptags %}
+  {% for tag in site.tags %}
+    {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+  {% endfor %}
+{% endcapture %}
+{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+{% for temptag in sortedtemptags %}
+  {% assign tagitems = temptag | split: '#' %}
+    {% if tagitems[1].size > 3 %}
+      {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
+      <a href="/tag/{{ tagname }}"><code class="highligher-rouge"><nobr>{{ tagname }} AND {{ tagitems[1].size }}</nobr></code></a> //
+    {% endif %}
+{% endfor %}
