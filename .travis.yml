@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+ - 2.6
+ - ruby
+ 
+ script: jekyll build
+ sudo: false
+ exclude: [vendor]
+ cache: bundler
