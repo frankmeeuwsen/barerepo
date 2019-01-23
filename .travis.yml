@@ -1,9 +1,16 @@
 language: ruby
 rvm:
- - 2.6
- - ruby
- 
- script: jekyll build
- sudo: false
- exclude: [vendor]
- cache: bundler
+  - 2.4.2
+  - jruby
+  - truffleruby
+before_install:
+  - gem update --system
+  - gem install bundler 
+
+script: jekyll build
+
+sudo: false
+
+exclude: [vendor]
+
+cache: bundler
